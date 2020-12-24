@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { reset, setLanguage } from 'reducers/auth.reducer';
-import { translate } from '../../i18n/index'
+import { translate } from 'i18n'
 import RNRestart from 'react-native-restart';
 
 
@@ -20,6 +20,7 @@ export default function Home() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>{translate('hello')}</Text>
       <TouchableOpacity onPress={onLogout}>
         <Text>{translate('hello')}</Text>
         {/* <Text>hello</Text> */}

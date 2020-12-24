@@ -7,7 +7,6 @@ import { setI18nConfig } from 'i18n'
 import * as RNLocalize from "react-native-localize";
 
 export default function AppContainer() {
-  const language = useSelector(store => store.auth.language);
   setI18nConfig();
 
   useEffect(() => {

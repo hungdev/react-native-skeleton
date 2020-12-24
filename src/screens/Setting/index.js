@@ -1,21 +1,25 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { reset, setLanguage } from 'reducers/auth.reducer';
+import { translate } from 'i18n'
 
-class Setting extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text>Setting</Text>
-      </View>
-    );
+
+export default function Setting() {
+  const dispatch = useDispatch()
+  const language = useSelector(store => store.auth.language);
+
+  const onLogout = () => dispatch(reset())
+  const changeVNLanguage = () => {
+    dispatch(setLanguage('vi'))
   }
-}
+  const changeENLanguage = () => {
+    dispatch(setLanguage('en'))
+  }
 
-export default Setting;
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>{translate('hello')}</Text>
+    </View>
+  )
+}

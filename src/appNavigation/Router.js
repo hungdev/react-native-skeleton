@@ -84,19 +84,46 @@ function TabHome() {
 }
 
 function ContainerStack() {
-  const store = useSelector((store) => store);
-  const isAuth = store.auth.token;
-  console.log('store', store.auth.token);
+  // const store = useSelector((store) => store);
+  // const isAuth = store.auth.token;
+  // console.log('store', store.auth.token);
+  // return (
+  //   <Stack.Navigator>
+  //     <Stack.Screen
+  //       name="Home"
+  //       component={TabHome}
+  //       options={{ headerShown: false }}
+  //     />
+  //     <Stack.Screen name="Profile" component={Profile} />
+  //     {/* <Stack.Screen name="Profile" component={ProfileScreen} />
+  //           <Stack.Screen name="Setting" component={SettingScreen} /> */}
+  //   </Stack.Navigator>
+  // );
+  const store = useSelector(store => store);
+  const isAuth = store.auth.user
+  console.log('store', store.auth.user);
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="Home"
-        component={TabHome}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen name="Profile" component={Profile} />
-      {/* <Stack.Screen name="Profile" component={ProfileScreen} />
+      {!isAuth ? (
+        <>
+          <Stack.Screen name="SignIn" component={Login} options={{ headerShown: false }} />
+          {/* <Stack.Screen name="SignUp" component={SignUpScreen} /> */}
+          {/* <Stack.Screen name="ResetPassword" component={ResetPassword} /> */}
+        </>
+      ) :
+        (
+          <>
+            <Stack.Screen
+              name="Home"
+              component={TabHome}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen name="Profile" component={Profile} />
+            {/* <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="Setting" component={SettingScreen} /> */}
+          </>
+        )
+      }
     </Stack.Navigator>
   );
 }

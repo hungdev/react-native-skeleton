@@ -1,34 +1,18 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../reducers/auth.reducer';
 
-import { connect } from 'react-redux';
-// import { setAuth } from '../../actions/authAction';
 
-class Login extends React.Component {
-  render() {
-    return (
-      <View>
+export default function Login() {
+  const dispatch = useDispatch()
+  const onLogin = () => dispatch(login('cee'))
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <TouchableOpacity onPress={onLogin}>
         <Text>Login</Text>
-        <TouchableOpacity
-        // onPress={() => this.props.dispatchSetAuth('cee')}
-        >
-          <Text>Move to Home</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+      </TouchableOpacity>
+    </View>
+  )
 }
 
-function mapStateToProps(state) {
-  return {
-    user: state.auth.user,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    // dispatchSetAuth: (detail) => dispatch(setAuth(detail)),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);

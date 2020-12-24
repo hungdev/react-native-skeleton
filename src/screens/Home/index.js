@@ -1,46 +1,16 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  TouchableOpacity,
-} from 'react-native';
-import { connect } from 'react-redux';
-// import { removeAuth } from '../../actions/authAction';
-import Reactotron from 'reactotron-react-native'
+import { View, Text, TouchableOpacity } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { reset } from '../../reducers/auth.reducer';
 
-class Home extends React.Component {
-
-  componentDidMount() {
-    Reactotron.log('hello rendering world')
-  }
-  render() {
-    return (
-      <View>
-        <Text>Ceee</Text>
-        <TouchableOpacity
-        // onPress={() => this.props.dispatchRemoveAuth()}
-        >
-          <Text>Logout</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+export default function Home() {
+  const dispatch = useDispatch()
+  const onLogout = () => dispatch(reset())
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <TouchableOpacity onPress={onLogout}>
+        <Text>Logout</Text>
+      </TouchableOpacity>
+    </View>
+  )
 }
-
-function mapStateToProps(state) {
-  return {
-    user: state.auth.user,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    // dispatchRemoveAuth: () => dispatch(removeAuth()),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);

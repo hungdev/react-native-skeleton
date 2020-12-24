@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { store } from './src/config/store';
 
-import AppContainer from './src/appNavigation/AppContainer';
+import AppContainer from 'navigation/AppContainer';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/es/integration/react';
 

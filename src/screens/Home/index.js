@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { reset } from '../../reducers/auth.reducer';
+import { reset } from 'reducers/auth.reducer';
 
 export default function Home() {
   const dispatch = useDispatch()

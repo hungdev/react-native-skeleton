@@ -27,6 +27,7 @@ module.exports = {
           "utils": "./src/utils",
           "themes": "./src/themes",
           "navigation": "./src/appNavigation",
+          'i18n': "./src/i18n",
           "app": "./src",
         }
       }

@@ -4,6 +4,7 @@ import { REQUEST, SUCCESS, FAILURE } from '../utils/actionTypes';
 
 export const ACTION_TYPES = {
   SET_USER: 'auth/SET_USER',
+  SET_LANGUAGE: 'auth/SET_LANGUAGE',
   FETCH_USER: 'auth/FETCH_USER',
   CREATE_USER: 'auth/CREATE_USER',
   UPDATE_USER: 'auth/UPDATE_USER',
@@ -20,6 +21,7 @@ const initialState = {
   updating: false,
   totalItems: 0,
   updateSuccess: false,
+  language: null
 };
 
 // Reducer
@@ -79,6 +81,11 @@ export default function authReducer(state = initialState, action) {
         ...state,
         user: action.payload
       };
+    case ACTION_TYPES.SET_LANGUAGE:
+      return {
+        ...state,
+        language: action.language
+      };
     case ACTION_TYPES.CHANGE_FIELD:
       return {
         ...state,
@@ -96,6 +103,12 @@ export default function authReducer(state = initialState, action) {
 const apiUrl = 'https://hungvu.net';
 // Actions
 
+export const setLanguage = (params) => {
+  return {
+    type: ACTION_TYPES.SET_LANGUAGE,
+    language: params,
+  };
+};
 export const login = (params) => {
   return {
     type: ACTION_TYPES.SET_USER,

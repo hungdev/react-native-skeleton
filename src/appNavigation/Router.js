@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { Button, View, Text } from 'react-native';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -101,7 +101,6 @@ function ContainerStack() {
   // );
   const store = useSelector(store => store);
   const isAuth = store.auth.user
-  console.log('store', store.auth.user);
   return (
     <Stack.Navigator>
       {!isAuth ? (

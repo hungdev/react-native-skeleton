@@ -1,3 +1,8 @@
 {
-  "hello": "Hello english"
+  "hello": "Hello english",
+  "logo": "JustBee",
+  "signIn": "Sign in",
+  "emailAddressLogin": "Email address/ login",
+  "password": "Password",
+  "iForgotPassword": "I forgot password"
 }

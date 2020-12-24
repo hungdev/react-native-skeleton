@@ -84,21 +84,6 @@ function TabHome() {
 }
 
 function ContainerStack() {
-  // const store = useSelector((store) => store);
-  // const isAuth = store.auth.token;
-  // console.log('store', store.auth.token);
-  // return (
-  //   <Stack.Navigator>
-  //     <Stack.Screen
-  //       name="Home"
-  //       component={TabHome}
-  //       options={{ headerShown: false }}
-  //     />
-  //     <Stack.Screen name="Profile" component={Profile} />
-  //     {/* <Stack.Screen name="Profile" component={ProfileScreen} />
-  //           <Stack.Screen name="Setting" component={SettingScreen} /> */}
-  //   </Stack.Navigator>
-  // );
   const store = useSelector(store => store);
   const isAuth = store.auth.user
   return (

@@ -1,6 +1,6 @@
 import I18n from "i18n-js";
 import * as RNLocalize from "react-native-localize";
-
+// guide: https://medium.com/@nicolas.kovacs/react-native-localize-and-i18n-js-117f09428017
 import en from "./locales/en";
 import vi from "./locales/vi";
 import pl from "./locales/pl";

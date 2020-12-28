@@ -36,18 +36,6 @@ export default StyleSheet.create({
     marginBottom: Metrics.smallMargin,
     fontSize: Fonts.size.medium
   },
-  input: {
-    borderWidth: 1,
-    width: '90%',
-    backgroundColor: Colors.white,
-    borderRadius: 3,
-    height: 40
-  },
-  inputWrapper: {
-    marginTop: Metrics.doubleBaseMargin,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   forgotPassword: {
     color: Colors.darkYellow,
     marginLeft: '5%',
@@ -56,7 +44,7 @@ export default StyleSheet.create({
     textDecorationLine: 'underline'
   },
   btnSignIn: {
-    width: '30%',
+    width: '40%',
     height: 40,
     borderWidth: 1,
     justifyContent: 'center',
@@ -69,6 +57,6 @@ export default StyleSheet.create({
   txtBtnLogin: {
     fontWeight: 'bold',
     fontSize: Fonts.size.medium,
-  }
+  },
 
 })

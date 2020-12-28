@@ -4,5 +4,9 @@
   "signIn": "Sign in",
   "emailAddressLogin": "Email address/ login",
   "password": "Password",
-  "iForgotPassword": "I forgot password"
+  "iForgotPassword": "I forgot password",
+  "required": "This field is required",
+  "email": {
+    "invalid": "Email is invalid"
+  }
 }

@@ -1,4 +1,4 @@
-# react-native-just-bee
+# react-native-skeleton
 
 Base react native application for scalable projects using Redux + React Navigation v5, + .....
 

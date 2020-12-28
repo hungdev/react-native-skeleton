@@ -2,7 +2,7 @@
   "hello": "Hello english",
   "logo": "JustBee",
   "signIn": "Sign in",
-  "emailAddressLogin": "Email address/ login",
+  "userName": "User Name",
   "password": "Password",
   "iForgotPassword": "I forgot password",
   "required": "This field is required",

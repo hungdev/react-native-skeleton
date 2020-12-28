@@ -4,10 +4,10 @@ import { translate } from 'i18n'
 import { Metrics, Fonts, Colors } from 'themes'
 
 export default function FormInput(props) {
-  const { title, value, onChangeText, onBlur, errorValue, inputWrapperStyle, titleStyle, inputStyle } = props
+  const { title, value, onChangeText, onBlur, errorValue, isRequired, inputWrapperStyle, titleStyle, inputStyle } = props
   return (
     <View style={[styles.wrapper, inputWrapperStyle]}>
-      <Text style={{ ...styles.titleInput, ...titleStyle }}>{translate(title)}</Text>
+      <Text style={{ ...styles.titleInput, ...titleStyle }}>{translate(title)} {isRequired && <Text style={styles.asterisk}>*</Text>}</Text>
       <TextInput
         onBlur={onBlur}
         value={value}
@@ -39,5 +39,8 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     marginTop: Metrics.baseMargin
+  },
+  asterisk: {
+    color: 'red'
   }
 })

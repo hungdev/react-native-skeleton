@@ -33,20 +33,17 @@ export default function Login() {
         render={({ onChange, onBlur, value }) => (
           <Input
             inputWrapperStyle={{ marginTop: 60 }}
-            title='emailAddressLogin'
+            title='userName'
             onBlur={onBlur}
             onChangeText={value => onChange(value)}
             value={value}
             errorValue={errors.email}
+            isRequired
           />
         )}
         name="email"
         rules={{
           ...REQUIRED,
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "invalid email address"
-          }
         }}
         defaultValue=""
       />
@@ -60,6 +57,7 @@ export default function Login() {
             onChangeText={value => onChange(value)}
             value={value}
             errorValue={errors.password}
+            isRequired
           />
         )}
         name="password"

@@ -1,15 +1,12 @@
-import I18n from "i18n-js";
+// https://www.i18next.com/translation-function/interpolation
+import i18next from 'i18next';
+import { initReactI18next, useTranslation } from 'react-i18next';
 import * as RNLocalize from "react-native-localize";
-// guide: https://medium.com/@nicolas.kovacs/react-native-localize-and-i18n-js-117f09428017
-import en from "./locales/en";
-import vi from "./locales/vi";
-import pl from "./locales/pl";
+import en from "./locales/en.json";
+import vi from "./locales/vi.json";
+import pl from "./locales/pl.json";
 
 const locales = RNLocalize.getLocales();
-
-if (Array.isArray(locales)) {
-  I18n.locale = locales[0].languageTag;
-}
 
 export function getLanguageTag() {
   if (locales && Array.isArray(locales)) {
@@ -18,13 +15,26 @@ export function getLanguageTag() {
   return null;
 }
 
-I18n.fallbacks = true;
-I18n.translations = {
-  en,
-  vi,
-  pl
+const languageDetector = {
+  type: 'languageDetector',
+  async: true,
+  detect: cb => cb('en'),
+  init: () => { },
+  cacheUserLanguage: () => { },
 };
 
-export const translate = (value) => I18n.t(value)
+i18next
+  .use(languageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: 'en',
+    debug: true,
+    resources: {
+      en: { translation: en, },
+      vi: { translation: vi, },
+      pl: { translation: pl, },
+    },
+  });
 
-export default I18n;
+
+export default i18next;

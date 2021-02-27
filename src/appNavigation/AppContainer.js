@@ -3,12 +3,16 @@ import { Button, View, Text, BackHandler, Alert } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import NavigationService from './NavigationService';
 import TopLevelNavigator from './Router';
-import I18n from "i18n-js";
-import { getLanguageTag } from "i18n";
+import { useTranslation } from 'react-i18next';
+
 
 export default function AppContainer() {
+  const { t, i18n } = useTranslation();
   const language = useSelector(store => store.auth.language);
-  I18n.locale = language || getLanguageTag()
+
+  useEffect(() => {
+    i18n.changeLanguage(language)
+  }, [language])
 
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButton);

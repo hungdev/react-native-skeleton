@@ -116,7 +116,6 @@ function App() {
   return (
     <NavigationContainer>
       <ContainerStack />
-      {/* <MyTabs /> */}
     </NavigationContainer>
   );
 }

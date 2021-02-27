@@ -1,13 +1,14 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput } from 'react-native'
-import { translate } from 'i18n'
+import { initReactI18next, useTranslation } from 'react-i18next';
 import { Metrics, Fonts, Colors } from 'themes'
 
 export default function FormInput(props) {
+  const { t, i18n } = useTranslation();
   const { title, value, onChangeText, onBlur, errorValue, isRequired, inputWrapperStyle, titleStyle, inputStyle } = props
   return (
     <View style={[styles.wrapper, inputWrapperStyle]}>
-      <Text style={{ ...styles.titleInput, ...titleStyle }}>{translate(title)} {isRequired && <Text style={styles.asterisk}>*</Text>}</Text>
+      <Text style={{ ...styles.titleInput, ...titleStyle }}>{t(title)} {isRequired && <Text style={styles.asterisk}>*</Text>}</Text>
       <TextInput
         onBlur={onBlur}
         value={value}

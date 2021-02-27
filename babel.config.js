@@ -4,7 +4,7 @@ module.exports = {
     [
       "module-resolver",
       {
-        "root": [
+        root: [
           "./src"
         ],
         extensions: [
@@ -18,7 +18,9 @@ module.exports = {
           '.js',
           '.json',
         ],
-        "alias": {
+        alias: {
+          "app": "./src",
+          "src": "./src",
           "components": "./src/components",
           "reducers": "./src/reducers",
           "config": "./src/config",
@@ -27,10 +29,15 @@ module.exports = {
           "utils": "./src/utils",
           "themes": "./src/themes",
           "navigation": "./src/appNavigation",
-          'i18n': "./src/i18n",
-          "app": "./src",
+          'i18n': "./src/i18n"
         }
       }
+    ],
+    [
+      '@babel/plugin-proposal-decorators',
+      {
+        legacy: true
+      }
     ]
-  ]
+  ],
 };

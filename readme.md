@@ -31,3 +31,10 @@ Base react native application for scalable projects using Redux + React Navigati
 - adb reverse tcp:8081 tcp:8081
 - adb forward tcp:8083 tcp:8083
 
+clean gradlew adnroid
+
+```
+cd android
+chmod +x gradlew
+./gradlew clean
+```

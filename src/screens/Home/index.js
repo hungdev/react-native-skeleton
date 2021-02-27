@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from "./styles";
 import { useDispatch, useSelector } from 'react-redux';
-import { reset, setLanguage } from 'reducers/auth.reducer';
-import { translate } from 'i18n'
+import { reset, setLanguage } from 'app/reducers/auth.reducer';
+import { initReactI18next, useTranslation } from 'react-i18next';
 
 
 export default function Home() {
   const dispatch = useDispatch()
   const language = useSelector(store => store.auth.language);
+  const { t, i18n } = useTranslation();
 
   const onLogout = () => dispatch(reset())
   const changeVNLanguage = () => {
@@ -20,7 +21,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text>{translate('hello')}</Text>
+      <Text>{t('hello')}</Text>
       <TouchableOpacity onPress={onLogout}>
         <Text>Logout</Text>
         {/* <Text>hello</Text> */}
